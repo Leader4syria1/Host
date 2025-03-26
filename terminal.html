@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terminal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>💻 Terminal</h1>
+        <pre id="terminalOutput">📡 انتظار الإخراج...</pre>
+
+        <nav>
+            <a href="index.html">🏠 الصفحة الرئيسية</a>
+            <a href="files.html">📂 ملفاتي</a>
+        </nav>
+    </div>
+
+    <script>
+        function fetchLogs() {
+            fetch("https://your-repl-name.your-username.repl.co/logs")
+                .then(response => response.text())
+                .then(logs => {
+                    document.getElementById("terminalOutput").textContent = logs;
+                });
+        }
+
+        setInterval(fetchLogs, 3000);
+    </script>
+</body>
+</html>
